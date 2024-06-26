@@ -1,0 +1,14 @@
+---
+- name: install and start nginx
+  hosts: all
+  become_user: root
+  become: yes
+
+  tasks:
+   - name: install nginx
+     apt:
+      name: nginx
+      state: present
+   - name: start nginx
+     shell : sudo systemctl start nginx
+
